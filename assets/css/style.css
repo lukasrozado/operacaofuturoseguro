@@ -186,7 +186,7 @@ body {
     background-color: var(--white);
 }
 .coverage-section h2, .faq-section h2, .final-cta-section h2 {
-    font-size: 2.2rem;
+    font-size: 1.8rem;
     font-weight: 900;
     color: var(--navy-dark);
     margin-bottom: 50px;
