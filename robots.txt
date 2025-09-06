@@ -1,0 +1,8 @@
+# Comunica a todos os robôs de busca (Google, Bing, etc.)
+User-agent: *
+
+# Nenhuma pasta ou arquivo está bloqueado para indexação.
+Disallow:
+
+# Localização do mapa do site, essencial para os robôs encontrarem todas as páginas.
+Sitemap: https://www.operacaofuturoseguro.com.br/sitemap.xml
