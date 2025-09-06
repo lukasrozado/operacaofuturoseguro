@@ -106,30 +106,73 @@
         </div>
         </main>
 
-    <section id="contratacao-section" class="hidden">
-        <div class="container">
-            <div id="contratacao-card" class="card">
-                <h1>Falta pouco! Preencha seus dados para a proposta.</h1>
-                <p class="card-subtitle">Um de nossos especialistas usará estas informações para gerar sua proposta oficial e entrar em contato.</p>
-                <form action="https://formspree.io/f/mvgbaqdd" method="POST">
-                    <input type="hidden" name="_subject" value="Nova Cotação - Operação Futuro Seguro">
-                    <input type="hidden" name="_template" value="table">
-                    <input type="hidden" name="_next" value="https://operacaofuturoseguro.com.br/obrigado.html">
-                    <input type="hidden" id="form-final-resumo" name="resumo_simulacao">
-                    <h2>Dados Pessoais</h2>
-                    <div class="form-grid">
-                        <div class="form-group"><label>Nome Completo</label><input type="text" name="Nome Completo" required></div>
-                        <div class="form-group"><label>CPF</label><input type="text" name="CPF" required></div>
-                        <div class="form-group"><label>Data de Nascimento</label><input type="date" name="Data de Nascimento" required></div>
-                        <div class="form-group"><label>Celular (DDD)</label><input type="tel" name="Celular" placeholder="(21) 99999-9999" required></div>
-                        <div class="form-group"><label>E-mail</label><input type="email" name="E-mail" required></div>
+<section id="contratacao-section" class="hidden">
+    <div class="container">
+        <div id="contratacao-card" class="card">
+            <h1>Falta pouco! Preencha seus dados para a proposta.</h1>
+            <p class="card-subtitle">Um de nossos especialistas usará estas informações para gerar sua proposta oficial e entrar em contato.</p>
+            
+            <form action="https://formspree.io/f/mvgbaqdd" method="POST">
+                <input type="hidden" name="_subject" value="Nova Cotação - Operação Futuro Seguro">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_next" value="https://operacaofuturoseguro.com.br/obrigado.html">
+                <input type="hidden" id="form-final-resumo" name="resumo_simulacao">
+                
+                <h2>Dados Pessoais</h2>
+                <div class="form-grid">
+                    <div class="form-group"><label>Nome Completo</label><input type="text" name="Nome Completo" required></div>
+                    <div class="form-group"><label>CPF</label><input type="text" name="CPF" required></div>
+                    <div class="form-group"><label>Data de Nascimento</label><input type="date" name="Data de Nascimento" required></div>
+                    <div class="form-group"><label>Sexo</label><select name="Sexo" required><option value="">Selecione...</option><option value="Masculino">Masculino</option><option value="Feminino">Feminino</option></select></div>
+                    <div class="form-group"><label>Nacionalidade</label><input type="text" name="Nacionalidade" value="Brasileira" required></div>
+                    <div class="form-group"><label>Estado Civil</label><select name="Estado Civil" required><option value="">Selecione...</option><option value="Solteiro(a)">Solteiro(a)</option><option value="Casado(a)">Casado(a)</option><option value="Divorciado(a)">Divorciado(a)</option><option value="Viúvo(a)">Viúvo(a)</option><option value="União Estável">União Estável</option></select></div>
+                </div>
+
+                <h2>Contato</h2>
+                <div class="form-grid">
+                    <div class="form-group"><label>Celular (DDD)</label><input type="tel" name="Celular" placeholder="(21) 99999-9999" required></div>
+                    <div class="form-group"><label>E-mail</label><input type="email" name="E-mail" required></div>
+                </div>
+
+                <h2>Endereço</h2>
+                <div class="form-grid-address">
+                    <div class="form-group address-street"><label>Endereço (Rua, Av.)</label><input type="text" name="Endereço" required></div>
+                    <div class="form-group address-number"><label>Nº</label><input type="text" name="Número" required></div>
+                    <div class="form-group address-complement"><label>Complemento</label><input type="text" name="Complemento"></div>
+                    <div class="form-group"><label>Bairro</label><input type="text" name="Bairro" required></div>
+                    <div class="form-group"><label>Cidade</label><input type="text" name="Cidade" required></div>
+                    <div class="form-group"><label>UF</label><input type="text" name="UF" required maxlength="2"></div>
+                    <div class="form-group"><label>CEP</label><input type="text" name="CEP" required></div>
+                </div>
+
+                <h2>Outras Informações</h2>
+                <div class="form-grid">
+                    <div class="form-group"><label>Ocupação Principal</label><input type="text" name="Ocupação Principal (detalhada)" placeholder="Ex: Policial Militar, Batalhão X" required></div>
+                    <div class="form-group"><label>Renda Bruta Mensal (R$)</label><input type="text" name="Renda Bruta Mensal" placeholder="Ex: 5000,00" required></div>
+                    <div class="form-group"><label>Altura (metros)</label><input type="text" name="Altura (M)" placeholder="Ex: 1.80"></div>
+                    <div class="form-group"><label>Peso (kg)</label><input type="text" name="Peso (kg)" placeholder="Ex: 85"></div>
+                </div>
+                <div class="form-group">
+                    <label>É uma Pessoa Exposta Politicamente?</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="Pessoa Exposta Politicamente" value="Sim"> Sim</label>
+                        <label><input type="radio" name="Pessoa Exposta Politicamente" value="Não" checked> Não</label>
                     </div>
-                    <p style="font-size: smaller; justify-content: center;"><strong>LGPD:</strong> Seus dados estão protegidos conforme a <strong>Lei nº 13.709/2018</strong> e serão usados apenas para os fins informados.</p>
-                    <button type="submit" class="btn btn-secondary">Enviar para Cotação</button>
-                </form>
-            </div>
+                </div>
+                <div class="form-group">
+                    <label>Utiliza ou já utilizou tabaco/nicotina?</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="Usa Tabaco" value="Sim"> Sim</label>
+                        <label><input type="radio" name="Usa Tabaco" value="Não" checked> Não</label>
+                    </div>
+                </div>
+
+                <p style="font-size: smaller; margin-top: 20px; text-align: center;"><strong>LGPD:</strong> Seus dados estão protegidos conforme a <strong>Lei nº 13.709/2018</strong> e serão usados apenas para os fins informados.</p>
+                <button type="submit" class="btn btn-secondary">Enviar para Cotação</button>
+            </form>
         </div>
-    </section>
+    </div>
+</section>
     
     <a href="https://wa.me/55021979430036?text=Olá!%20Vim%20pelo%2Dsite%20e%20gostaria%20de%20saber%20mais%20sobre%20o%20seguro." class="whatsapp-float" target="_blank" aria-label="Fale conosco pelo WhatsApp">
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
