@@ -302,7 +302,7 @@ body {
     opacity: 0.8;
     color: var(--white);
 }
-.about-content-section { padding: 80px 20px; }
+.about-content-section { padding: 30px 20px; }
 .about-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 60px; align-items: flex-start; }
 .about-text h2 { font-size: 2rem; margin-bottom: 20px; }
 .about-text h3 { font-size: 1.3rem; margin-top: 30px; margin-bottom: 15px; }
