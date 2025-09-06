@@ -1,9 +1,9 @@
-// /assets/js/wizard.js - VERSÃO CORRIGIDA SEM O BOTÃO "COMEÇAR"
+// /assets/js/wizard.js - VERSÃO COMPLETA COM CPF E CEP
 
 document.addEventListener('DOMContentLoaded', () => {
     const card = document.getElementById('simulador-card');
     if (!card) return;
-
+    
     // --- SELEÇÃO DOS ELEMENTOS (SEU CÓDIGO ORIGINAL) ---
     const form = document.getElementById('simulacao-form');
     const profissao = document.getElementById('profissao');
@@ -207,7 +207,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     function finishWizard() {
-        // ... (sua função finishWizard original, sem alterações) ...
         updateSummaryAndPremium();
         const prof = profissao.options[profissao.selectedIndex]?.text || '';
         const postotxt = (posto && posto.value) ? posto.value : '';
@@ -229,6 +228,18 @@ document.addEventListener('DOMContentLoaded', () => {
             contratacaoSection.classList.remove('hidden');
         }
         goToStep(stepCount - 1);
+        const profissaoSelecionada = profissao.value;
+        // Encontra o campo de "Ocupação Principal" no formulário final
+        const ocupacaoFinalInput = document.getElementById('ocupacao-final');
+        if (ocupacaoFinalInput) {
+              // Preenche o campo com o valor
+              ocupacaoFinalInput.value = profissaoSelecionada;
+              // Torna o campo somente leitura (bloqueado)
+              ocupacaoFinalInput.readOnly = true;
+              // Adiciona um estilo visual para indicar que está bloqueado
+              ocupacaoFinalInput.style.backgroundColor = '#e9ecef';
+              ocupacaoFinalInput.style.cursor = 'not-allowed';
+          }
     }
 
     // --- INICIALIZAÇÃO DO WIZARD (LÓGICA ALTERADA) ---
@@ -258,6 +269,96 @@ document.addEventListener('DOMContentLoaded', () => {
             const cardEl = contratacaoSection.querySelector('#contratacao-card');
             if (cardEl && !cardEl.contains(e.target)) {
                 contratacaoSection.classList.add('hidden');
+            }
+        });
+    }
+
+    // ==================================================================
+    //  NOVA LÓGICA INTEGRADA PARA O FORMULÁRIO FINAL (CPF E CEP)
+    // ==================================================================
+    
+    const finalForm = document.getElementById('final-form');
+    const cpfInput = document.getElementById('cpf-final');
+    const cepInput = document.getElementById('cep-final');
+    const ruaInput = document.getElementById('rua-final');
+    const bairroInput = document.getElementById('bairro-final');
+    const cidadeInput = document.getElementById('cidade-final');
+    const ufInput = document.getElementById('uf-final');
+
+    // --- LÓGICA DA MÁSCARA E VALIDAÇÃO DE CPF ---
+    if (cpfInput) {
+        cpfInput.addEventListener('input', (e) => {
+            let value = e.target.value.replace(/\D/g, '');
+            value = value.replace(/(\d{3})(\d)/, '$1.$2');
+            value = value.replace(/(\d{3})(\d)/, '$1.$2');
+            value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+            e.target.value = value.slice(0, 14);
+        });
+    }
+
+    function validarCPF(cpf) {
+        cpf = cpf.replace(/[^\d]+/g, '');
+        if (cpf === '' || cpf.length !== 11 || /^(\d)\1{10}$/.test(cpf)) return false;
+        let soma = 0, resto;
+        for (let i = 1; i <= 9; i++) soma += parseInt(cpf.substring(i - 1, i)) * (11 - i);
+        resto = (soma * 10) % 11;
+        if ((resto === 10) || (resto === 11)) resto = 0;
+        if (resto !== parseInt(cpf.substring(9, 10))) return false;
+        soma = 0;
+        for (let i = 1; i <= 10; i++) soma += parseInt(cpf.substring(i - 1, i)) * (12 - i);
+        resto = (soma * 10) % 11;
+        if ((resto === 10) || (resto === 11)) resto = 0;
+        if (resto !== parseInt(cpf.substring(10, 11))) return false;
+        return true;
+    }
+
+    // --- LÓGICA DA BUSCA DE ENDEREÇO POR CEP ---
+    if (cepInput) {
+        cepInput.addEventListener('input', (e) => {
+            let value = e.target.value.replace(/\D/g, '');
+            value = value.replace(/^(\d{5})(\d)/, '$1-$2');
+            e.target.value = value.slice(0, 9);
+            if (value.length === 9) {
+                buscarCEP(value);
+            }
+        });
+    }
+
+    const buscarCEP = async (cep) => {
+        const cepLimpo = cep.replace(/\D/g, '');
+        const url = `https://viacep.com.br/ws/${cepLimpo}/json/`;
+        try {
+            cepInput.style.cursor = 'wait'; // Mostra que está carregando
+            const response = await fetch(url);
+            const data = await response.json();
+            cepInput.style.cursor = 'default';
+
+            if (data.erro) {
+                alert('CEP não encontrado. Verifique o número digitado.');
+                return;
+            }
+            ruaInput.value = data.logradouro;
+            bairroInput.value = data.bairro;
+            cidadeInput.value = data.localidade;
+            ufInput.value = data.uf;
+            document.getElementById('numero-final').focus();
+        } catch (error) {
+            console.error('Erro ao buscar CEP:', error);
+            alert('Não foi possível buscar o CEP. Tente novamente.');
+            cepInput.style.cursor = 'default';
+        }
+    };
+
+    // --- VALIDAÇÃO GERAL DO FORMULÁRIO ANTES DO ENVIO ---
+    if (finalForm) {
+        finalForm.addEventListener('submit', (e) => {
+            // 1. Valida o CPF
+            if (cpfInput && !validarCPF(cpfInput.value)) {
+                e.preventDefault(); // Impede o envio
+                alert('Por favor, insira um CPF válido.');
+                cpfInput.focus();
+                cpfInput.style.borderColor = 'red';
+                setTimeout(() => { cpfInput.style.borderColor = ''; }, 3000);
             }
         });
     }

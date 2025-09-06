@@ -212,8 +212,13 @@ body { background-color: var(--navy-gray); }
 #contratacao-card h2 { font-size: 1.3rem; text-align: left; margin-top: 30px; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid var(--light-gray); }
 #contratacao-card .form-grid { margin-bottom: 20px; }
 .form-grid-address {
-    display: grid; grid-template-columns: 3fr 1fr 1.5fr; gap: 20px;
-    grid-template-areas: "street number complement" "bairro cidade uf" "cep . .";
+    display: grid;
+    grid-template-columns: 3fr 1fr 1.5fr; /* Rua (grande) | Nº (pequeno) | Complemento (médio) */
+    gap: 20px;
+    grid-template-areas:
+        "cep    bairro  cidade"
+        "street street  street"
+        "number uf      complement";
     margin-bottom: 20px;
 }
 .address-street { grid-area: street; }
@@ -256,6 +261,84 @@ body { background-color: var(--navy-gray); }
         grid-area: unset !important;
     }
 }
+
+/* /assets/css/simulacao/style.css */
+
+/* --- ESTILOS PARA O SELETOR CUSTOMIZADO DE ATIVIDADES --- */
+/* Adicione este bloco ao final do seu arquivo CSS */
+
+/* Garante que o container do seletor não tenha uma largura fixa */
+.form-group .capemisa-select {
+    width: 100%;
+}
+.capemisa-select { position: relative; }
+
+/* Adapta o header do seletor para se parecer com os outros inputs */
+.cs-header {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #fafafa;
+    transition: border 0.2s;
+    cursor:pointer;
+    min-height: 48px; /* Mesma altura dos outros inputs */
+}
+.cs-header:focus {
+    border-color: var(--gold);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.25);
+}
+.cs-value { color: var(--text-dark); }
+.cs-icon { color:#666; font-size:12px; margin-left:8px; }
+
+/* Painel que abre com as opções */
+.cs-panel {
+    position:absolute;
+    left:0; right:0;
+    margin-top:4px;
+    border:1px solid #e3e3e3;
+    border-radius: 8px;
+    background: var(--white);
+    box-shadow:0 10px 30px rgba(11,20,40,0.1);
+    z-index: 100;
+    padding:8px;
+}
+.cs-filter {
+    width:100%;
+    box-sizing:border-box;
+    padding:10px;
+    margin-bottom:6px;
+    border-radius:5px;
+    border:1px solid #efefef;
+    font-size: 0.9rem;
+}
+.cs-items {
+    list-style:none; margin:0; padding:0;
+    max-height:180px; overflow:auto;
+    scrollbar-width:thin;
+}
+.cs-items li {
+    padding:10px 12px;
+    cursor:pointer;
+    font-size:0.9rem;
+    border-radius:4px;
+    color: var(--text-dark);
+}
+.cs-items li:hover,
+.cs-items li.focused {
+    background: var(--light-gray);
+}
+.cs-items li[aria-selected="true"] {
+    background: var(--gold);
+    color: var(--navy-dark);
+    font-weight: bold;
+}
+.cs-nores { padding:10px; color:#777; font-size:0.9rem; }
 
 /* === Wizard (multi-step) — adicionado === */
 .wizard-step { display: none; width: 100%; }
