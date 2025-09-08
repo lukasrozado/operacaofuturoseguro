@@ -4,7 +4,7 @@
 @import 'base/_reset.css';
 @import 'base/_typography.css';
 
-@import 'layout/_main.css';
+@import 'layout/main.css';
 
 @import 'components/_header.css';
 @import 'components/_buttons.css';
@@ -13,6 +13,6 @@
 @import 'components/_footer.css';
 @import 'components/_whatsapp-float.css';
 
-@import 'pages/_global.css';
 @import 'pages/_home.css';
 @import 'pages/_sobre.css';
+@import 'pages/_global.css';
