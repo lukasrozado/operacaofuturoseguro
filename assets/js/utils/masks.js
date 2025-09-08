@@ -1,0 +1,14 @@
+export function maskCPF(input) {
+    let value = input.value.replace(/\D/g, '');
+    value = value.replace(/(\d{3})(\d)/, '$1.$2');
+    value = value.replace(/(\d{3})(\d)/, '$1.$2');
+    value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+    input.value = value.slice(0, 14);
+}
+
+export function maskCEP(input) {
+    let value = input.value.replace(/\D/g, '');
+    value = value.replace(/^(\d{5})(\d)/, '$1-$2');
+    input.value = value.slice(0, 9);
+    return input.value; // Retorna o valor com máscara para checagem
+}

@@ -366,11 +366,9 @@ body { background-color: var(--navy-gray); }
   transition: width 300ms ease;
 }
 
-/* Mantém o card sem overflow externo; garante que a área que cresce tenha min-height 0 para flex overflow funcionar */
 .split-right .card { min-height: 0; }
 .card-body, .table-container { min-height: 0; }
 
-/* Pequeno ajuste: no mobile botões maiores para tocar */
 @media (max-width: 480px) {
   .wizard-nav { flex-direction: column-reverse; gap: 10px; }
   .wizard-nav .btn { width: 100%; }

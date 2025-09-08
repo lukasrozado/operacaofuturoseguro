@@ -1,0 +1,12 @@
+export function loadComponent(elementId, url) {
+    fetch(url)
+        .then(response => {
+            if (!response.ok) throw new Error(`Erro ao carregar: ${url}`);
+            return response.text();
+        })
+        .then(data => {
+            const element = document.getElementById(elementId);
+            if (element) element.innerHTML = data;
+        })
+        .catch(error => console.error(error));
+}
