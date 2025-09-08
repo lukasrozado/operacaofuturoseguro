@@ -1,0 +1,101 @@
+/* --- FOOTER --- */
+.main-footer {
+    background-color: var(--navy-dark);
+    color: #a0a0a0;
+    padding: 60px 0 30px;
+    font-size: 0.95rem;
+    width: 100%;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-column h3 {
+    color: var(--white);
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.footer-column a, .footer-column p {
+    color: #ffffff;
+    text-decoration: none;
+    margin-bottom: 12px;
+    display: block;
+    transition: color var(--transition-speed) ease;
+}
+
+.footer-column a:hover {
+    color: var(--gold);
+}
+
+.copyright {
+    text-align: center;
+    border-top: 1px solid #4a5c6d;
+    padding-top: 30px;
+    margin-top: 30px;
+    color: #ffffff;
+    max-width: 1140px;
+    margin: 30px auto 0;
+    padding: 30px 20px 0;
+}
+
+.copyright p {
+    margin: 0;
+}
+
+.social-share {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+            padding: 2rem 0;
+            width: 100%;
+        }
+        
+        .social-share p {
+            margin-right: 1rem;
+            font-weight: bold;
+        }
+        
+        .social-share a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #f1f1f1;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+        
+        .social-share a:hover {
+            background-color: #e9ecef;
+            transform: translateY(-2px);
+        }
+
+/* Responsividade do Footer */
+@media (max-width: 992px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+    
+    .footer-column {
+        min-width: 100%;
+    }
+}

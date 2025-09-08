@@ -1,0 +1,12 @@
+:root {
+    --gold: #D4AF37;
+    --navy-dark: #2C3E50;
+    --navy-light: #3a4b5c;
+    --white: #FFFFFF;
+    --off-white: #f8f9fa;
+    --gray-text: #6c757d;
+    --border-color: #dee2e6;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    --border-radius: 12px;
+    --transition-speed: 0.3s;
+}

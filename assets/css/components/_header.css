@@ -1,0 +1,96 @@
+/* --- HEADER E NAVEGAÇÃO --- */
+.main-header {
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: all var(--transition-speed) ease;
+    width: 100%;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
+}
+
+.brand-logo img {
+    height: 45px;
+    width: auto;
+}
+
+.brand-title {
+    font-weight: 900;
+    font-size: 1.2rem;
+    color: var(--navy-dark);
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: var(--navy-light);
+    font-weight: 700;
+    font-size: 0.9rem;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.main-nav a:not(.btn-header)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--gold);
+    transition: width var(--transition-speed) ease;
+}
+
+.main-nav a:not(.btn-header):hover::after {
+    width: 100%;
+}
+
+.btn-header {
+    padding: 10px 22px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    background-color: var(--gold);
+    color: var(--navy-dark);
+    text-decoration: none;
+    border-radius: var(--border-radius);
+    transition: all var(--transition-speed) ease;
+}
+
+.btn-header:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3);
+}
+
+/* Responsividade do Header */
+@media (max-width: 768px) {
+    .main-nav {
+        display: none;
+    }
+    
+    .header-content {
+        justify-content: center;
+    }
+}

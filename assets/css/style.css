@@ -62,11 +62,12 @@ body {
     height: 45px; /* Altura ajustada para o header */
     width: auto;
 }
+        
 .brand-title {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--navy-dark);
-}
+            font-weight: 900;
+            font-size: 1.2rem;
+            color: #2c3e50;
+        }
 .main-nav {
     display: flex;
     align-items: center;
@@ -306,15 +307,10 @@ body {
     color: var(--white);
 }
 .about-content-section { padding: 30px 20px; }
-.about-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 60px; align-items: flex-start; }
+.about-grid { display: grid; grid-template-columns: 5fr; gap: 30px; align-items: center; }
 .about-text h2 { font-size: 2rem; margin-bottom: 20px; }
 .about-text h3 { font-size: 1.3rem; margin-top: 30px; margin-bottom: 15px; }
 .about-text p { margin-bottom: 15px; }
-.about-text ul { list-style-position: inside; padding-left: 0; }
-.about-text ul li { margin-bottom: 10px; }
-.about-profile { text-align: center; }
-.profile-pic { width: 100%; max-width: 250px; border-radius: 50%; margin-bottom: 20px; box-shadow: var(--shadow); }
-.about-profile h4 { font-size: 1.2rem; margin-bottom: 5px; }
 .profile-title { color: var(--gray-text); font-size: 0.9rem; }
 
 
