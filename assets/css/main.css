@@ -1,18 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap');
 
-@import 'base/_variables.css';
-@import 'base/_reset.css';
-@import 'base/_typography.css';
+@import './base/_variables.css';
+@import './base/_reset.css';
+@import './base/_typography.css';
 
-@import 'layout/_main.css';
+@import './layout/_main.css';
 
-@import 'components/_header.css';
-@import 'components/_buttons.css';
-@import 'components/_cards.css';
-@import 'components/_faq-accordion.css';
-@import 'components/_footer.css';
-@import 'components/_whatsapp-float.css';
+@import './components/_header.css';
+@import './components/_buttons.css';
+@import './components/_cards.css';
+@import './components/_faq-accordion.css';
+@import './components/_footer.css';
+@import './components/_whatsapp-float.css';
 
-@import 'pages/_global.css';
-@import 'pages/_home.css';
-@import 'pages/_sobre.css';
+@import './pages/_global.css';
+@import './pages/_home.css';
+@import './pages/_sobre.css';
