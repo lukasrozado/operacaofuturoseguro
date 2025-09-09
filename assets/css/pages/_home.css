@@ -1,18 +1,18 @@
 .home-hero {
-    /* Em /assets/css/pages/_home.css */
-    background-image: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('../../images/hero-background.webp');
+    background-color: var(--navy-light);
     background-size: cover;
     background-position: center 60%;
-    padding: 160px 0;
+    padding: 20px 0 ;
     color: var(--white);
     text-align: center;
 }
+
 
 .home-hero-content h1 {
     font-size: 3rem;
     font-weight: 900;
     max-width: 800px;
-    margin: 0 auto 20px auto;
+    margin: 0 auto 10px auto;
     line-height: 1.2;
     text-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
@@ -20,7 +20,7 @@
 .home-hero-content p {
     font-size: 1.2rem;
     max-width: 650px;
-    margin: 0 auto 30px auto;
+    margin: 0 auto 20px auto;
     opacity: 0.9;
 }
 
@@ -29,10 +29,25 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: 15px 30px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     font-weight: 500;
     opacity: 0.95;
 }
+.logo-container {
+    max-width: 100%;
+    margin: 0 auto 1.5rem;
+    padding-top: 0;
+    position: relative;
+    top: 0; /* remove ajuste manual */
+}
+
+        
+        .logo-responsive {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
 
 /* --- 4. SEÇÕES DE CONTEÚDO (CONFIANÇA, COBERTURAS) --- */
 .trust-section {
@@ -190,7 +205,9 @@
     .home-hero-content h1 {
         font-size: 1.8rem;
     }
-    
+    .logo-responsive {
+                max-width: 80%;
+    }
     .hero-benefits {
         flex-direction: column;
         gap: 10px;
@@ -201,3 +218,8 @@
     }
     
 }
+@media (max-width: 480px) {
+            .logo-responsive {
+                max-width: 70%;
+            }
+        }

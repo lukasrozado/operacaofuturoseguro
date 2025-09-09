@@ -83,14 +83,37 @@
     transform: translateY(-2px);
     box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3);
 }
+/* Botão Hamburguer */
+.hamburger {
+    display: none;
+    font-size: 1.8rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--navy-dark);
+}
 
-/* Responsividade do Header */
+/* Mobile */
 @media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
     .main-nav {
         display: none;
+        flex-direction: column;
+        gap: 15px;
+        background: white;
+        position: absolute;
+        top: 70px; /* altura do header */
+        right: 20px;
+        padding: 20px;
+        border-radius: var(--border-radius);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
-    
-    .header-content {
+
+    .main-nav.active {
+        display: flex;
         justify-content: center;
     }
 }
