@@ -1,17 +1,1 @@
-/* Responsividade Global */
-@media (max-width: 992px) {
-    .footer-content {
-        flex-direction: column;
-        text-align: center;
-    }
-}
-
-@media (max-width: 768px) {
-    .main-nav {
-        display: none;
-    }
-    
-    .header-content {
-        justify-content: center;
-    }
-}
+@media (max-width:992px){.footer-content{flex-direction:column;text-align:center}}@media (max-width:768px){.main-nav{display:none}.header-content{justify-content:center}}
