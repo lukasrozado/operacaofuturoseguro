@@ -112,7 +112,7 @@
             <h1>Falta pouco! Preencha seus dados para a proposta.</h1>
             <p class="card-subtitle">Um de nossos especialistas usará estas informações para gerar sua proposta oficial e entrar em contato.</p>
             
-            <form action="https://formspree.io/f/mvgbaqdd" method="POST">
+            <form id="contratacao-form">
                 <input type="hidden" name="_subject" value="Nova Cotação - Operação Futuro Seguro">
                 <input type="hidden" name="_template" value="table">
                 <input type="hidden" name="_next" value="https://operacaofuturoseguro.com.br/obrigado.html">
@@ -190,6 +190,39 @@
         </div>
     </div>
 </section>
+<script>
+const form = document.getElementById('contratacao-form');
+
+form.addEventListener('submit', function(e) {
+    e.preventDefault(); // interrompe o envio padrão
+
+    const formData = new FormData(form);
+
+    // envia para Formspree via JS
+    fetch("https://formspree.io/f/mvgbaqdd", {
+        method: "POST",
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+    }).then(response => {
+        if (response.ok) {
+            // abre WhatsApp com os dados
+            let mensagem = "Nova proposta:\n";
+            formData.forEach((value, key) => {
+                mensagem += `${key}: ${value}\n`;
+            });
+            window.open("https://wa.me/55021979430036?text=" + encodeURIComponent(mensagem), "_blank");
+
+            // redireciona para sua página de obrigado
+            window.location.href = "https://operacaofuturoseguro.com.br/obrigado.html";
+        } else {
+            alert("Erro ao enviar o formulário.");
+        }
+    }).catch(err => {
+        console.error(err);
+        alert("Erro ao enviar o formulário.");
+    });
+});
+</script>
     
     <a href="https://wa.me/55021979430036?text=Olá!%20Vim%20pelo%2Dsite%20e%20gostaria%20de%20saber%20mais%20sobre%20o%20seguro." class="whatsapp-float" target="_blank" aria-label="Fale conosco pelo WhatsApp">
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
