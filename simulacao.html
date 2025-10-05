@@ -123,7 +123,11 @@
                 <div class="form-grid">
                     <div class="form-group"><label>Nome Completo</label><input type="text" name="Nome Completo" required></div>
                     <div class="form-group"><label>CPF *</label><input type="text" id="cpf-final" name="CPF" placeholder="000.000.000-00" required></div>
-                    <div class="form-group"><label>Data de Nascimento</label><input type="date" name="Data de Nascimento" required></div>
+                    <div class="form-group">
+                        <label>Data de Nascimento</label>
+                        <input type="text" id="data-nascimento" name="Data de Nascimento" placeholder="DD/MM/AAAA" required>
+                        <small style="display: block; margin-top: 4px; color: #666;">Formato: DD/MM/AAAA</small>
+                    </div>
                     <div class="form-group"><label>Sexo</label><select name="Sexo" required><option value="">Selecione...</option><option value="Masculino">Masculino</option><option value="Feminino">Feminino</option></select></div>
                     <div class="form-group"><label>Nacionalidade</label><input type="text" name="Nacionalidade" value="Brasileira" required></div>
                     <div class="form-group"><label>Estado Civil</label><select name="Estado Civil" required><option value="">Selecione...</option><option value="Solteiro(a)">Solteiro(a)</option><option value="Casado(a)">Casado(a)</option><option value="Divorciado(a)">Divorciado(a)</option><option value="Viúvo(a)">Viúvo(a)</option><option value="União Estável">União Estável</option></select></div>
@@ -171,7 +175,6 @@
                     <div class="form-group"><label>Peso (kg)</label><input type="text" name="Peso (kg)" placeholder="Ex: 85"></div>
                 </div>
 
-                <!-- NOVOS CAMPOS ADICIONADOS AQUI -->
                 <h2>Forma de Pagamento</h2>
                 <div class="form-grid">
                     <div class="form-group">
@@ -194,7 +197,6 @@
                     </div>
                 </div>
                 <p style="font-size: smaller; margin-top: -10px; margin-bottom: 20px;">A primeira parcela será paga em boleto no prazo especificado pela Capemisa.</p>
-                <!-- FIM DOS NOVOS CAMPOS -->
 
                 <div class="form-group">
                     <label>É uma Pessoa Exposta Politicamente?</label>
