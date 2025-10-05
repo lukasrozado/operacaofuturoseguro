@@ -170,6 +170,32 @@
                     <div class="form-group"><label>Altura (metros)</label><input type="text" name="Altura (M)" placeholder="Ex: 1.80"></div>
                     <div class="form-group"><label>Peso (kg)</label><input type="text" name="Peso (kg)" placeholder="Ex: 85"></div>
                 </div>
+
+                <!-- NOVOS CAMPOS ADICIONADOS AQUI -->
+                <h2>Forma de Pagamento</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Forma de Pagamento *</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="Forma de Pagamento" value="Boleto" required> Boleto</label>
+                            <label><input type="radio" name="Forma de Pagamento" value="Débito"> Débito Automático</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Dia do Vencimento *</label>
+                        <select name="Dia do Vencimento" required>
+                            <option value="">Selecione...</option>
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
+                            <option value="20">20</option>
+                            <option value="25">25</option>
+                        </select>
+                    </div>
+                </div>
+                <p style="font-size: smaller; margin-top: -10px; margin-bottom: 20px;">A primeira parcela será paga em boleto no prazo especificado pela Capemisa.</p>
+                <!-- FIM DOS NOVOS CAMPOS -->
+
                 <div class="form-group">
                     <label>É uma Pessoa Exposta Politicamente?</label>
                     <div class="radio-group">
