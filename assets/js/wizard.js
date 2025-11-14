@@ -17,8 +17,6 @@ if(valorIfpdEl)valorIfpdEl.textContent=capitalIFPDTxt;const limiteMaxIPA=getLimi
             <strong>Profissão:</strong> ${prof}${postotxt ? " — " + postotxt : ""}<br>
             <strong>Idade:</strong> ${idadetxt}<br>
             <strong>Capital (Morte):</strong> ${captxt}<br>
-            <strong>Capital (IPA):</strong> ${capitalIPATxt}<br>
-            <strong>Capital (IFPD):</strong> ${capitalIFPDTxt}<br>
             <strong>Coberturas escolhidas:</strong> ${coverages.length ? coverages.join(", ") : "Nenhuma adicional"}
         `;if(summaryEl)summaryEl.innerHTML=html;const p=calcPremium();if(premiumEl)premiumEl.textContent=formatBRL(p);if(premioTotal)premioTotal.textContent=formatBRL(p);}
 form.style.display="none";if(coverageList)coverageList.style.display="none";if(premioTotal&&premioTotal.parentElement)premioTotal.parentElement.style.display="none";if(btnInterest)btnInterest.style.display="none";const wizard=document.createElement("div");wizard.className="wizard";const progressWrap=document.createElement("div");progressWrap.className="wizard-progress";const progressBar=document.createElement("div");progressBar.className="bar";progressWrap.appendChild(progressBar);wizard.appendChild(progressWrap);const stepsContainer=document.createElement("div");stepsContainer.className="wizard-steps";wizard.appendChild(stepsContainer);function createStep(titleHtml=""){const step=document.createElement("div");step.className="wizard-step";if(titleHtml){const h=document.createElement("h3");h.innerHTML=titleHtml;h.style.marginBottom="12px";step.appendChild(h)}
